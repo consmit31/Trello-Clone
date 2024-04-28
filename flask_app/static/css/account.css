@@ -1,0 +1,28 @@
+:root{
+    --main_green: rgb(24, 69, 59);
+    --kelly_green: rgb(0, 138, 8);
+}
+
+#login-container{ 
+    background-color: rgba(255, 255, 255, 0.395);
+    width: 50%;
+    border: 5px solid rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-bottom: 2%;
+    text-align: center;
+    align-items: center;
+}
+
+#login-container h5{
+    color: var(--main_green);
+}
+
+#login-container .buttons {
+    margin-top: 4%;
+}
+

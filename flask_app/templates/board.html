@@ -1,0 +1,104 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/board.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css')}}">
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+<script src="https:cdn.socket.io/3.1.1/socket.io.min.js"></script>
+<script src="{{ url_for('static', filename='js/board.js') }}" defer></script>
+{% endblock %}
+
+{% block maincontent %}
+<nav>
+    <div class="board-name">
+        <h2>{{ board_data.name }}</h2>
+    </div>
+
+    <ul>
+    <li><a href="/viewBoards">View Boards</a></li>
+    <li>●</li>
+    <li><a href="/createBoard">Create New Board</a>
+    </ul>
+</nav>
+<hr>
+
+<div id="chat-tab">
+    <div id="chat-tab-icon" onclick="openChat(this)">&#x1F5A7; ||</div> 
+</div> 
+<div class="chat-box" id="chat-box-{{ board_data.id }}">
+    <div id="chat-header">
+      <h2>{{board_data.name}} Chat</h2>
+      <span id="chat-close" onclick="closeChat(this)">&times;</span> <!-- Close button -->
+    </div>
+    <div id="chat-content">
+    </div>
+    <div id="chat-input">
+      <input type="text" id="message-input" placeholder="Type your message...">
+      <button id="send-button" onclick="sendMessage(this)">Send</button>
+    </div>
+</div>
+
+<span class="list-container">
+    <div id="to-do-list" class="list" ondrop="drop(event)", ondragover="allowDrop(event)">
+        <h1>To Do</h1>
+        <hr>
+
+        {% for card_item in board_data['to_do'] %}
+        <div class="card" id="card-{{card_item.id}}" draggable="true" ondragstart="drag(event)">
+            <div class="card-content" contenteditable="false">
+                {{card_item.content}}
+            </div>
+            <div class="card-buttons"> 
+                <input type="button" id="deletecard" value="remove card" onclick="removeCard(this, '{{card_item.id}}')">
+                <input type="button" id="editcard" value="edit card" onclick="editCard(this, '{{card_item.id}}')">
+            </div>
+        </div>
+        {% endfor %}
+
+        <input type="button" id="add-todo-card" value="+" onclick="addNewCard('{{board_data.id}}', 1)">
+    </div>
+
+    <div id="doing-list" class="list" ondrop="drop(event)", ondragover="allowDrop(event)">
+        <h1>Doing</h1>
+        <hr>
+
+        {% for card_item in board_data['doing'] %}
+        <div class="card" id="card-{{card_item.id}}" draggable="true" ondragstart="drag(event)">
+            <div class="card-content" contenteditable="false">
+                {{card_item.content}}
+            </div>
+            <div class="card-buttons"> 
+                <input type="button" id="deletecard" value="remove card" onclick="removeCard(this, '{{card_item.id}}')">
+                <input type="button" id="editcard" value="edit card" onclick="editCard(this, '{{card_item.id}}')">
+            </div>
+        </div>
+        {% endfor %}
+
+        <input type="button" id="add-doing-card" value="+" onclick="addNewCard('{{board_data.id}}', 2)">
+    </div>
+
+    <div id="completed-list" class="list" ondrop="drop(event)", ondragover="allowDrop(event)">
+        <h1>Completed</h1>
+        <hr>
+        
+        {% for card_item in board_data['completed'] %}
+        <div class="card" id="card-{{card_item.id}}" draggable="true" ondragstart="drag(event)">
+            <div class="card-content" contenteditable="false">
+                {{card_item.content}}
+            </div>
+            <div class="card-buttons"> 
+                <input type="button" id="deletecard" value="remove card" onclick="removeCard(this, '{{card_item.id}}')">
+                <input type="button" id="editcard" value="edit card" onclick="editCard(this, '{{card_item.id}}')">
+            </div>
+        </div>
+        {% endfor %}
+
+        <input type="button" id="add-completed-card" value="+" onclick="addNewCard('{{board_data.id}}', 3)">
+    </div>
+</span>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+:root{
+    --main_green: rgb(24, 69, 59)
+    --kelly_green: rgb(0, 138, 8)
+}
+
+body{
+    background-color: rgb(24, 69, 59);
+}
+
+footer{
+    text-align: center;
+    color: var(--kelly_green);
+    -webkit-text-stroke: 0.2px black;
+    background-color: rgb(255, 255, 255);
+    border: solid rgb(0, 0, 0);
+    border-radius: 20px;
+    margin: auto;
+    padding-left: 2px;
+    padding-right: 2px;
+    width: fit-content;
+}

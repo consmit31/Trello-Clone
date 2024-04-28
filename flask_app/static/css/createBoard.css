@@ -1,0 +1,35 @@
+:root{
+    --main_green: rgb(24, 69, 59);
+    --kelly_green: rgb(0, 138, 8);
+}
+
+#board-creation-container{ 
+    background-color: rgba(255, 255, 255, 0.395);
+    width: 50%;
+    border: 5px solid rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    display: block;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-bottom: 2%;
+    text-align: center;
+    align-items: center;
+}
+
+#board-creation-container input {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+
+#board-creation-container h5{
+    color: var(--main_green);
+}
+
+
+

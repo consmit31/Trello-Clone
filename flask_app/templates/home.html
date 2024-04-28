@@ -1,0 +1,17 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}">
+{% endblock %}
+
+{% block maincontent %}
+<nav>
+  <ul>
+    <li><a href="/viewBoards">View Boards</a></li>
+    <li>●</li>
+    <li><a href="/createBoard">Create New Board</a>
+  </ul>
+</nav>
+<hr>
+
+{% endblock %}

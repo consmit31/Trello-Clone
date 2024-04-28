@@ -1,0 +1,23 @@
+:root{
+    --main_green: rgb(24, 69, 59);
+    --kelly_green: rgb(0, 138, 8);
+}
+
+nav{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-flex;
+    margin-right: 5px;
+}
+
+nav ul li a{
+    list-style: none;
+    color: white;
+    text-decoration: none;
+}

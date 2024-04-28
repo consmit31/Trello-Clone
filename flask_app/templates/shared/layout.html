@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrellClone</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    {% block extracss %}{% endblock %}
+
+    {% block extrajs %}{% endblock %}
+</head>
+
+<body>
+    <header>
+        <span class="header-title">
+            TrellClone 
+        </span>
+        <span class="header-user-name">
+            {% if user %} 
+            {{user}}
+            {% endif %}
+        </span>
+        <span class="header-nav">
+            
+            {% if user %}
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/account">Sign-in</a>
+            {% endif %}
+
+            <a href="/">Chat</a>
+        </span>
+    </header>
+    <hr>
+
+    <article>
+        <main>
+            {% block maincontent %}
+            {% endblock %}
+        </main>
+
+        <hr>
+
+        <footer>
+            <p>Conner Smith © 2024</p>
+        </footer>
+    </article>
+</body>
+
+</html>

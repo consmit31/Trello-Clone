@@ -1,0 +1,32 @@
+:root{
+    --main_green: rgb(24, 69, 59);
+    --kelly_green: rgb(0, 138, 8);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .header-title{
+    color: var(--kelly_green);
+    -webkit-text-stroke: 0.2px black;
+    background-color: rgb(255, 255, 255);
+    border: solid rgb(0, 0, 0);
+    border-radius: 20px;
+    font: 800 25px bolder;
+    padding: 1%;
+
+}
+
+header .header-nav{
+    vertical-align:middle;
+}
+
+header .header-nav a{
+    color: white;
+    font: 800 25px bolder;
+    margin: 10px;
+    text-decoration: none;
+}
